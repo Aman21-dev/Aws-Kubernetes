@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app1-nginx-deployment
+  name: nginx-app-deployment
   labels:
-    app: app1-nginx
+    app: nginx-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: app1-nginx
+      app: nginx-app
   template:
     metadata:
       labels:
-        app: app1-nginx
+        app: nginx-app
     spec:
       containers:
-        - name: app1-nginx
+        - name: nginx-app
           image: amanregistry.azurecr.io/ngnixapp
           ports:
             - containerPort: 80
@@ -25,11 +25,11 @@ kind: Service
 metadata:
   name: app1-nginx-loadbalancer-service
   labels:
-    app: app1-nginx
+    app: nginx-app
 spec:
   type: LoadBalancer
   selector:
-    app: app1-nginx
+    app: nginx-app
   ports:
     - port: 80
       targetPort: 80
