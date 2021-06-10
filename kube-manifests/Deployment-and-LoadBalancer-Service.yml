@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: ngnixapp
-          image: aksdevopsacr.azurecr.io/custom2aksnginxapp1
+          image: amanregistry.azurecr.io/ngnixapp
           ports:
             - containerPort: 80
 ---
